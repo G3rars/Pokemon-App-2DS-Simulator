@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-export const DownScreen = ({ isOn, setIsOn, soundButton }) => {
+export const DownScreen = ({ isOn, setIsOn, soundButton, requestPokemons, setShowList}) => {
   const [animation, setAnimation] = useState(false);
   const [icons, setIcons] = useState(false);
   useEffect(() => {
@@ -30,7 +30,7 @@ export const DownScreen = ({ isOn, setIsOn, soundButton }) => {
             } flex flex-col justify-center items-center w-1/2`}
           >
             <img
-              onClick={soundButton}
+              onClick={() => {soundButton() , requestPokemons(), setShowList(true)}}
               className={`${icons ? "show-icons" : "hide-icons"} w-[50%]`}
               src="src/assets/gaming.png"
               alt="icon.ong"
@@ -41,7 +41,7 @@ export const DownScreen = ({ isOn, setIsOn, soundButton }) => {
             <p
               className={`${
                 icons ? "show-icons" : "hide-icons"
-              } text-black font-semibold`}
+              } text-black font-semibold text-xs md:text-sm`}
             >
               Pokemons
             </p>
@@ -62,7 +62,7 @@ export const DownScreen = ({ isOn, setIsOn, soundButton }) => {
             <p
               className={`${
                 icons ? "show-icons" : "hide-icons"
-              } text-black font-semibold`}
+              } text-black font-semibold text-xs md:text-sm`}
             >
               ShutDown
             </p>

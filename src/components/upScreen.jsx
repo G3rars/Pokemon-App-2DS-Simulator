@@ -1,7 +1,13 @@
 import React, { useEffect, useState } from 'react'
 
-export const UpScreen = ({ isOn, batteryLevel, currentHour }) => {
+export const UpScreen = ({ isOn, batteryLevel}) => {
   const [startSystem, setStartSystem] = useState(false)
+  const [currentHour, setCurrentHour] = useState('');
+  setInterval(() => {
+    const currentTime = new Date();
+    const formattedHour = currentTime.toLocaleTimeString();
+    setCurrentHour(formattedHour);
+  }, 1000);
   useEffect(() => {
     if (isOn)
     {
