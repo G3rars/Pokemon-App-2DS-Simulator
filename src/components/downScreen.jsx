@@ -32,11 +32,11 @@ export const DownScreen = ({ isOn, setIsOn, soundButton, requestPokemons, setSho
             <img
               onClick={() => {soundButton() , requestPokemons(), setShowList(true)}}
               className={`${icons ? "show-icons" : "hide-icons"} w-[50%]`}
-              src="src/assets/gaming.png"
+              src="/gaming.png"
               alt="icon.ong"
             />
             <audio id="myAudio" style={{ display: "none" }}>
-              <source src="src/assets/button.mp3" type="audio/mpeg" />
+              <source src="/button.mp3" type="audio/mpeg" />
             </audio>
             <p
               className={`${
@@ -56,7 +56,7 @@ export const DownScreen = ({ isOn, setIsOn, soundButton, requestPokemons, setSho
                 setIsOn(false), soundButton();
               }}
               className={`${icons ? "show-icons" : "hide-icons"} w-[50%]`}
-              src="src/assets/Shutdown.png"
+              src="/Shutdown.png"
               alt="icon.png"
             />
             <p

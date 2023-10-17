@@ -33,7 +33,7 @@ function App() {
 
   const soundButton = () => 
 	{
-		const audio = new Audio('src/assets/button.mp3');
+		const audio = new Audio('/button.mp3');
     if (isOn)
 		  audio.play();
 	}
@@ -57,7 +57,7 @@ function App() {
         />
         <img
           className="w-[350px] sm:min-w-[640px]"
-          src="src/assets/pngwing.com.png"
+          src="/pngwing.com.png"
           alt="ds"
         />
         <Buttons 
