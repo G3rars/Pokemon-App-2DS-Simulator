@@ -19,8 +19,8 @@
 	opacity: 0;
 }
 
+
 .start {
-	opacity: 0;
 	animation: fade-in-out 6s forwards; /* 3s fade-in + 3s fade-out */
   }
   
@@ -34,4 +34,29 @@
 	100% {
 	  opacity: 0; /* Al 100% (6 segundos), completamente invisible */
 	}
+  }
+
+  .led-off
+  {
+	filter: brightness(0%);
+  }
+
+  .led-on
+  {
+	animation: led-in-out 6s forwards;
+  }
+
+  @keyframes led-in-out {
+	0% {
+		filter: brightness(0%);
+	}
+	33% {
+		filter: brightness(1.75); /* Al 50% (3 segundos), completamente visible */
+	}
+	66% {
+		filter: brightness(0%); /* Al 100% (6 segundos), completamente invisible */
+	}
+	100% {
+		filter: brightness(1.75); /* Al 100% (6 segundos), completamente invisible */
+	  }
   }
