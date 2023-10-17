@@ -12,7 +12,7 @@ function Buttons({ setIsOn, isOn }) {
 	}
   return (
 	<div className='z-10'>
-		<button onClick={handleButton} className='absolute w-6 rounded-xl translate-x-[-64px] sm:translate-x-[-112px] translate-y-[103px] sm:translate-y-[203px]'>.</button>
+		<button onClick={ handleButton } className='absolute w-6 rounded-xl translate-x-[-64px] sm:translate-x-[-112px] translate-y-[103px] sm:translate-y-[203px]'>.</button>
 		<audio id='myAudio' style={{ display: 'none' }}>
         	<source src='src/assets/start.mp3' type='audio/mpeg' />
       	</audio>

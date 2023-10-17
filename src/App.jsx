@@ -7,6 +7,13 @@ function App() {
   const [isOn, setIsOn]= useState(false)
   const [batteryLevel, setBatteryLevel] = useState(null);
   const [currentHour, setCurrentHour] = useState('');
+  const [pokemonsData, setPokemonData] = useState(null);
+
+  const soundButton = () => 
+	{
+		const audio = new Audio('src/assets/button.mp3');
+		audio.play();
+	}
 
   useEffect(() => {
     const updateHour = () => {
@@ -44,7 +51,10 @@ function App() {
         setIsOn = {setIsOn}
         isOn={isOn}
         />
-        <DownScreen/>
+        <DownScreen
+        setIsOn = {setIsOn}
+        isOn={isOn}
+        soundButton={soundButton}/>
       </div>
     </>
   );

@@ -9,7 +9,8 @@ export const UpScreen = ({ isOn, batteryLevel, currentHour }) => {
         setStartSystem(true)
       }, 5000);
     }
-  })
+    setStartSystem(false)
+  }, [isOn])
   return (
 	<>
       <div className='500 absolute justify-center items-center h-1/2 w-full flex z-0'>
