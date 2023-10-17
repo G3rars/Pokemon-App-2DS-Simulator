@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.hidden-back
+{
+	opacity: 0;
+	transition: opacity 3s;
+}
+
+.show-back 
+{
+	opacity: 1;
+	transition: opacity 3s;
+}
+
+.hidden-logo
+{
+	opacity: 0;
+}
+
+.start {
+	opacity: 0;
+	animation: fade-in-out 6s forwards; /* 3s fade-in + 3s fade-out */
+  }
+  
+  @keyframes fade-in-out {
+	0% {
+	  opacity: 0;
+	}
+	50% {
+	  opacity: 1; /* Al 50% (3 segundos), completamente visible */
+	}
+	100% {
+	  opacity: 0; /* Al 100% (6 segundos), completamente invisible */
+	}
+  }
