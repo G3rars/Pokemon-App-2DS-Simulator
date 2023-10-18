@@ -6,7 +6,6 @@ body
 {
 	background-image: url('/backpaper2.jpg');
 	background-size: cover;
-	overflow-y: hidden;
 }
 .hidden-back
 {
