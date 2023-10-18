@@ -1,15 +1,22 @@
 import { useEffect, useState } from "react";
+import { usePokemonsData } from "../core/api";
 
 function useGlobal()
 {
 	/* variables de uso global*/
-	const [isOn, setIsOn]= useState(false)
-	const [showList, setShowList] = useState(false);
-  	const [selectIndex, setSelectIndex] = useState(0);
-  	const [index, setIndex] = useState(0)
+	const { pokemonsData } = usePokemonsData() // esto es para poder controlar la lista en el useEffect de abajo
+	const [isOn, setIsOn]= useState(false) // saber si esta encendida o apagada la consola
+	const [showList, setShowList] = useState(false); // esta nos muestra la lista de pokemons
+	const [detailPokemon, setdetailPokemon] = useState(false) // este muestra la ventana de detalles del pokemon
+	const [index, setIndex] = useState(0) // este index controla la paginacion de la llamada a la api
+	const [selectIndex, setSelectIndex] = useState(0); // este index controla la posicion de la lista
+	  const [select, setSelect] = useState(showList && // esto nos guarda 5 pokemons de pokemondata y los convierte en un array para iterarlos con selectIndex
+		pokemonsData ? Object.values(pokemonsData.results) : {}
+	  );
 	/* Estas variables son para animaciones*/
 	const [startSystem, setStartSystem] = useState(false)
 	const [icons, setIcons] = useState(false);
+
 
 	useEffect(() => {
 		if (isOn)
@@ -37,7 +44,11 @@ function useGlobal()
 		startSystem,
 		setStartSystem,
 		icons,
-		setIcons
+		setIcons,
+		select,
+		setSelect,
+		detailPokemon,
+		setdetailPokemon,
 	}
 }
 

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Sound_util from "../extras/sound_util";
 
 function Buttons({
@@ -9,24 +9,14 @@ function Buttons({
   setIndex,
   setSelectIndex,
   selectIndex,
-  pokemonsData,
   setStartSystem,
   soundButtonStart,
   soundButton1,
-  showList
+  showList,
+  select,
+  setdetailPokemon,
+  requestOnePokemons
 }) {
-  
-  const [select, setSelect] = useState(showList &&
-    pokemonsData ? Object.values(pokemonsData.results) : {}
-  );
-  useEffect(() => {
-    if (pokemonsData && pokemonsData.results)
-      setSelect(Object.values(pokemonsData.results));
-  }, [pokemonsData]);
-
-  const HandleSelectButton = () => {
-    console.log(select[selectIndex].url);
-  };
   return (
     <div className="z-10">
       <Sound_util />
@@ -40,7 +30,7 @@ function Buttons({
       </button>
       <button
         onClick={() => {
-          soundButton1(isOn), HandleSelectButton();
+          soundButton1(isOn); if (showList) {setdetailPokemon(true), requestOnePokemons(select[selectIndex].url)};
         }}
         className="text-white absolute translate-x-[-30px] sm:translate-x-[-40px] translate-y-[-56px] sm:translate-y-[-90px]"
       >
@@ -48,7 +38,7 @@ function Buttons({
       </button>
       <button
         onClick={() => {
-			setShowList(false), soundButton1(isOn);
+			setShowList(false), soundButton1(isOn); if (showList) {setdetailPokemon(false)}
 		  }}
         className="text-white absolute translate-x-[-50px] sm:translate-x-[-87px] translate-y-[-30px] sm:translate-y-[-60px]"
       >
@@ -96,7 +86,7 @@ function Buttons({
       </button>
       <button
         onClick={() => {
-          setShowList(false), soundButton1(isOn);
+          setShowList(false), soundButton1(isOn); if (showList) {setdetailPokemon(false)}
         }}
         className="text-white absolute translate-x-[-194px] sm:translate-x-[-340px] translate-y-[123px] sm:translate-y-[239px]"
       >
