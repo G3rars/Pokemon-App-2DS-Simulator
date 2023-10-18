@@ -63,6 +63,7 @@ body
   .down-off 
   {
 	 background-color: rgb(17 24 39);
+	 z-index: 90;
   }
 
   .down-on 
@@ -98,12 +99,15 @@ body
 
 .hide-icons
 {
-	opacity: 0;
+	display: none;
+	position: relative;
+	z-index: 10;
 }
 
 .show-icons
-{
-	animation: icons-in-out 2s forwards;
+{	
+	display: block;
+	animation: icons-in-out 0.8s forwards;
 }
 
 

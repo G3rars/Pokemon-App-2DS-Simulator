@@ -1,22 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
-export const UpScreen = ({ isOn, batteryLevel}) => {
-  const [startSystem, setStartSystem] = useState(false)
-  const [currentHour, setCurrentHour] = useState('');
-  setInterval(() => {
-    const currentTime = new Date();
-    const formattedHour = currentTime.toLocaleTimeString();
-    setCurrentHour(formattedHour);
-  }, 1000);
-  useEffect(() => {
-    if (isOn)
-    {
-      setTimeout(() => {
-        setStartSystem(true)
-      }, 5000);
-    }
-    setStartSystem(false)
-  }, [isOn])
+export const UpScreen = ({ isOn, batteryLevel, startSystem}) => {
   return (
 	<>
       <div className='500 absolute justify-center items-center h-1/2 w-full flex z-0'>
@@ -25,7 +9,7 @@ export const UpScreen = ({ isOn, batteryLevel}) => {
           <img className={`${!isOn ? 'hidden-logo ': 'start' } absolute w-[100px] sm:w-[160px] h-[40px] sm:h-[60px] mb-2`} src="/start-logo.png" alt="start-logo.png" /></div>
           <div className={`${!startSystem ? 'hidden-back': 'show-back' } absolute w-[190px] sm:w-[346px] h-[112px] sm:h-[209px] translate-y-[-61px] sm:translate-y-[-111px] z-10`} >
                 <p className='absolute end-1 z-20 text-white'>{batteryLevel}</p>
-                <p className='absolute start-1 z-20 text-white'>{currentHour}</p>
+                {/* <p className='absolute start-1 z-20 text-white'>{currentHour}</p> */}
                 <img className="w-full h-full z-10 relative" src="/wall.jpg" alt="" />
           </div>
          
