@@ -1,15 +1,10 @@
-import React, { useEffect, useState } from "react";
+function List_pokemon({ pokemonsData, selectIndex, select, pageIndex }) {
 
-function List_pokemon({ pokemonsData, selectIndex}) {
-	const [select, setSelect] = useState(Object.values(pokemonsData.results))
-	useEffect(() => 
-	{
-		setSelect(Object.values(pokemonsData.results))
-	}, [pokemonsData])
   return (
     <>
-      <div className="custom-shadow-inset flex flex-col items-center justify-around text-center z-20 bg-white shadow-inset absolute w-[150px] sm:w-[270px] min-h-[113px] sm:h-[201px] translate-y-[69px] sm:translate-y-[122px] ">
-	  {pokemonsData && pokemonsData.results ? (
+      <div className="custom-shadow-inset flex flex-col items-center justify-around text-center z-20 bg-white shadow-inset absolute w-[150px] sm:w-[270px] h-[113px] sm:h-[201px] translate-y-[69px] sm:translate-y-[122px] ">
+      <p className="absolute text-[10px] sm:text-[15px] top-0 end-2 font-semibold">{pageIndex + '/100'}</p>
+        {pokemonsData && pokemonsData.results ? (
           pokemonsData.results.map((pokemon) => (
             <div
               key={pokemon.name}

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import Buttons from "./components/buttons";
 import { DownScreen } from "./components/downScreen";
 import { UpScreen } from "./components/upScreen";
@@ -8,6 +8,7 @@ import { useExtra } from "./customHooks/extras"
 import { useGlobal } from "./customHooks/global";
 import { useSounds } from "./extras/sounds";
 import ShowPokemon from "./components/showPokemon";
+import DetailsPokemon from "./components/detailsPokemon";
 
 function App() {
   const {
@@ -22,18 +23,18 @@ function App() {
     startSystem,
 		setStartSystem,
     icons,
-    setIcons,
     select,
 		setSelect,
     detailPokemon,
 		setdetailPokemon,
+    pageIndex,
+		setPageIndex
 	} = useGlobal()
   
   const { soundButton1, soundButtonStart } = useSounds();
   const {batteryLevel} = useExtra() 
   const { 
-    pokemonsData, 
-    setPokemonsData,  
+    pokemonsData,  
     activePokemon,
     setActivePokemon,
     requestOnePokemons
@@ -42,7 +43,6 @@ function App() {
   useEffect(() => {
 		if (pokemonsData && pokemonsData.results)
 		  setSelect(Object.values(pokemonsData.results)); // revisar porque no funciona en global
-			console.log(select);
 	  }, [pokemonsData]);
 
   return (
@@ -61,9 +61,14 @@ function App() {
         batteryLevel={batteryLevel}
         />
         {
-          detailPokemon && <ShowPokemon activePokemon={activePokemon}/>
+          (detailPokemon && activePokemon) &&
+          <>
+          <ShowPokemon activePokemon={activePokemon}/>
+          <DetailsPokemon activePokemon={activePokemon}/>  
+          </>     
         }
-        <Buttons 
+        <Buttons
+        setActivePokemon={setActivePokemon}
         requestOnePokemons={requestOnePokemons}
         setdetailPokemon={setdetailPokemon}
         soundButtonStart={soundButtonStart}
@@ -80,9 +85,11 @@ function App() {
         showList={showList}
         setShowList={setShowList}
         select={select}
+        pageIndex={pageIndex}
+        setPageIndex={setPageIndex}
         />
         {
-          showList && <List_pokemon selectIndex={selectIndex} pokemonsData={pokemonsData}/>
+          (showList && !detailPokemon) && <List_pokemon pageIndex={pageIndex} selectIndex={selectIndex} select={select} pokemonsData={pokemonsData}/>
         }
          <DownScreen
           soundButton1={soundButton1}

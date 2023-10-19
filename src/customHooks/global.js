@@ -10,13 +10,13 @@ function useGlobal()
 	const [detailPokemon, setdetailPokemon] = useState(false) // este muestra la ventana de detalles del pokemon
 	const [index, setIndex] = useState(0) // este index controla la paginacion de la llamada a la api
 	const [selectIndex, setSelectIndex] = useState(0); // este index controla la posicion de la lista
-	  const [select, setSelect] = useState(showList && // esto nos guarda 5 pokemons de pokemondata y los convierte en un array para iterarlos con selectIndex
+	const [select, setSelect] = useState(showList && // esto nos guarda 5 pokemons de pokemondata y los convierte en un array para iterarlos con selectIndex
 		pokemonsData ? Object.values(pokemonsData.results) : {}
 	  );
+	const [pageIndex, setPageIndex] = useState(0)
 	/* Estas variables son para animaciones*/
 	const [startSystem, setStartSystem] = useState(false)
 	const [icons, setIcons] = useState(false);
-
 
 	useEffect(() => {
 		if (isOn)
@@ -49,6 +49,8 @@ function useGlobal()
 		setSelect,
 		detailPokemon,
 		setdetailPokemon,
+		pageIndex, 
+		setPageIndex
 	}
 }
 

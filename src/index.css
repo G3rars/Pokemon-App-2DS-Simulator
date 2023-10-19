@@ -56,6 +56,11 @@ body {
   }
 }
 
+.show-back {
+  background-image: url("/showback.jpg");
+  background-size: cover; /* Esto es opcional, ajusta el tamaño de la imagen al div */
+}
+
 /* ------------------ pantalla inferior================= */
 
 .down-off {
@@ -120,3 +125,24 @@ body {
   background-color: rgb(146, 146, 146);
   opacity: 50%;
 }
+
+.stats-bar{
+  background: gray;
+  width: 40px;
+  height: 7px;
+}
+
+.stats-bar-fill{
+  background: green;
+  height: 100%;
+}
+
+
+@media screen and (min-width: 640px) {
+  .stats-bar{
+    background: gray;
+    width: 100px;
+    height: 12px;
+  }
+}
+

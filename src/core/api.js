@@ -18,7 +18,6 @@ function usePokemonsData(index) {
         })
         .then((data) => {
           setPokemonsData(data);
-          console.log(pokemonsData);
         })
         .catch((error) => {
           console.error("Hubo un error en la solicitud:", error);
@@ -28,8 +27,6 @@ function usePokemonsData(index) {
   }, [index]);
 
   const requestOnePokemons = async (url) => {
-
-    console.log(url);
     fetch(url)
           .then((response) => {
             if (!response.ok) {
