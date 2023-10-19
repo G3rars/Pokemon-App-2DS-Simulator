@@ -4,7 +4,7 @@ import { usePokemonsData } from "../core/api";
 function useGlobal()
 {
 	/* variables de uso global*/
-	const { pokemonsData } = usePokemonsData() // esto es para poder controlar la lista en el useEffect de abajo
+	 // esto es para poder controlar la lista en el useEffect de abajo
 	const [isOn, setIsOn]= useState(false) // saber si esta encendida o apagada la consola
 	const [showList, setShowList] = useState(false); // esta nos muestra la lista de pokemons
 	const [detailPokemon, setdetailPokemon] = useState(false) // este muestra la ventana de detalles del pokemon
@@ -17,6 +17,7 @@ function useGlobal()
 	/* Estas variables son para animaciones*/
 	const [startSystem, setStartSystem] = useState(false)
 	const [icons, setIcons] = useState(false);
+	const [statsAnimation, setStatAnimation] = useState(false)
 
 	useEffect(() => {
 		if (isOn)
@@ -31,6 +32,16 @@ function useGlobal()
 		setStartSystem(false)
 		setIcons(false);
 	  }, [isOn])
+
+	  useEffect(() => {
+		if (detailPokemon)
+		{
+		  setTimeout(() => {
+			setStatAnimation(true)
+		  }, 100);
+		}
+		setStatAnimation(false)
+	  },[detailPokemon])
 
 	return {
 		isOn, 
@@ -50,7 +61,9 @@ function useGlobal()
 		detailPokemon,
 		setdetailPokemon,
 		pageIndex, 
-		setPageIndex
+		setPageIndex,
+		statsAnimation, 
+		setStatAnimation
 	}
 }
 

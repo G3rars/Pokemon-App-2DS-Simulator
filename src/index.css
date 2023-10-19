@@ -129,7 +129,11 @@ body {
 .stats-bar{
   background: gray;
   width: 40px;
-  height: 7px;
+}
+
+.hide-bar
+{
+  width: 0;
 }
 
 .stats-bar-fill{

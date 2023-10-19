@@ -28,7 +28,8 @@ function App() {
     detailPokemon,
 		setdetailPokemon,
     pageIndex,
-		setPageIndex
+		setPageIndex,
+    statsAnimation,
 	} = useGlobal()
   
   const { soundButton1, soundButtonStart } = useSounds();
@@ -40,7 +41,7 @@ function App() {
     requestOnePokemons
   } = usePokemonsData(index)
 
-  useEffect(() => {
+	useEffect(() => {
 		if (pokemonsData && pokemonsData.results)
 		  setSelect(Object.values(pokemonsData.results)); // revisar porque no funciona en global
 	  }, [pokemonsData]);
@@ -64,7 +65,7 @@ function App() {
           (detailPokemon && activePokemon) &&
           <>
           <ShowPokemon activePokemon={activePokemon}/>
-          <DetailsPokemon activePokemon={activePokemon}/>  
+          <DetailsPokemon statsAnimation={statsAnimation} detailPokemon={detailPokemon} activePokemon={activePokemon}/>  
           </>     
         }
         <Buttons
