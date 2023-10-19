@@ -3,6 +3,7 @@ import { usePokemonsData } from "../core/api";
 
 function useGlobal()
 {
+	const { pokemonsData } = usePokemonsData()
 	/* variables de uso global*/
 	 // esto es para poder controlar la lista en el useEffect de abajo
 	const [isOn, setIsOn]= useState(false) // saber si esta encendida o apagada la consola

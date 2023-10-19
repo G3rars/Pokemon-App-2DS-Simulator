@@ -18,7 +18,6 @@ function usePokemonsData(index) {
         })
         .then((data) => {
           setPokemonsData(data);
-          console.log(data);
         })
         .catch((error) => {
           console.error("Hubo un error en la solicitud:", error);
