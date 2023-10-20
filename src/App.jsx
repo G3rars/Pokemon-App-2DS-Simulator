@@ -32,7 +32,12 @@ function App() {
     statsAnimation,
 	} = useGlobal()
   
-  const { soundButton1, soundButtonStart } = useSounds();
+  const { 
+    soundButton1, 
+    soundButtonStart,
+    soundButtonSelect,
+    soundButtonBack  
+  } = useSounds();
   const {batteryLevel} = useExtra() 
   const { 
     pokemonsData,  
@@ -64,11 +69,12 @@ function App() {
         {
           (detailPokemon && activePokemon) &&
           <>
-          <ShowPokemon activePokemon={activePokemon}/>
+          <ShowPokemon activePokemon={activePokemon} statsAnimation={statsAnimation}/>
           <DetailsPokemon statsAnimation={statsAnimation} detailPokemon={detailPokemon} activePokemon={activePokemon}/>  
           </>     
         }
         <Buttons
+        detailPokemon={detailPokemon}
         setActivePokemon={setActivePokemon}
         requestOnePokemons={requestOnePokemons}
         setdetailPokemon={setdetailPokemon}
@@ -88,6 +94,8 @@ function App() {
         select={select}
         pageIndex={pageIndex}
         setPageIndex={setPageIndex}
+        soundButtonSelect={soundButtonSelect}
+        soundButtonBack={soundButtonBack}
         />
         {
           (showList && !detailPokemon) && <List_pokemon pageIndex={pageIndex} selectIndex={selectIndex} select={select} pokemonsData={pokemonsData}/>
@@ -99,6 +107,8 @@ function App() {
           isOn={isOn}
           icons={icons}
           setShowList={setShowList}
+          soundButtonSelect={soundButtonSelect}
+          soundButtonBack={soundButtonBack}
           />     
       </div>
 

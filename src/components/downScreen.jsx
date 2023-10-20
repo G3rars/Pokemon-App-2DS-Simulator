@@ -1,8 +1,10 @@
+import Sound_util from "../extras/sound_util";
 
-export const DownScreen = ({ startSystem, icons, setIsOn, isOn, soundButton1, setShowList}) => {
+export const DownScreen = ({ startSystem, icons, setIsOn, isOn, soundButtonSelect, soundButtonBack, setShowList}) => {
 
   return (
     <>
+    <Sound_util/>
       <div className="absolute justify-center items-center h-full w-full flex z-0">
         <div
           className={`${
@@ -15,14 +17,11 @@ export const DownScreen = ({ startSystem, icons, setIsOn, isOn, soundButton1, se
             } flex flex-col justify-center items-center w-1/2`}
           >
             <img
-              onClick={() => {setShowList(true), soundButton1(isOn)}}
+              onClick={() => {setShowList(true), soundButtonSelect(isOn)}}
               className={`${icons ? "show-icons" : "hide-icons"} w-[50%]`}
               src="/gaming.png"
               alt="icon.ong"
             />
-            <audio id="myAudio" style={{ display: "none" }}>
-              <source src="/button.mp3" type="audio/mpeg" />
-            </audio>
             <p
               className={`${
                 icons ? "show-icons" : "hide-icons"
@@ -38,7 +37,7 @@ export const DownScreen = ({ startSystem, icons, setIsOn, isOn, soundButton1, se
           >
             <img
               onClick={() => {
-                setIsOn(false), soundButton1(isOn);
+                setIsOn(false), soundButtonBack(isOn);
               }}
               className={`${icons ? "show-icons" : "hide-icons"} w-[50%]`}
               src="/Shutdown.png"

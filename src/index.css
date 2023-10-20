@@ -20,7 +20,7 @@ body {
 }
 
 .start {
-  animation: fade-in-out 6s forwards; /* 3s fade-in + 3s fade-out */
+  animation: fade-in-out 6s forwards;
 }
 
 @keyframes fade-in-out {
@@ -28,10 +28,10 @@ body {
     opacity: 0;
   }
   50% {
-    opacity: 1; /* Al 50% (3 segundos), completamente visible */
+    opacity: 1;
   }
   100% {
-    opacity: 0; /* Al 100% (6 segundos), completamente invisible */
+    opacity: 0; 
   }
 }
 
@@ -56,9 +56,23 @@ body {
   }
 }
 
-.show-back {
+.show-pokemon {
   background-image: url("/showback.jpg");
-  background-size: cover; /* Esto es opcional, ajusta el tamaño de la imagen al div */
+  background-size: cover;
+  height: 113px;
+  animation: showPokemon-in-out 0.7s forwards;
+}
+
+@keyframes showPokemon-in-out {
+  0%, 50%
+   {
+    opacity: 0;
+    height: 0;
+  }
+  100% {
+    opacity: 1;
+    height: 113px;
+  }
 }
 
 /* ------------------ pantalla inferior================= */
@@ -109,11 +123,11 @@ body {
   }
 
   50% {
-    display: block; /* Al 50% (3 segundos), completamente visible */
+    display: block;
   }
 
   100% {
-    opacity: 1; /* Al 50% (3 segundos), completamente visible */
+    opacity: 1; 
   }
 }
 
@@ -123,30 +137,44 @@ body {
 
 .select-list {
   background-color: rgb(146, 146, 146);
-  opacity: 50%;
+  opacity: 70%;
 }
 
 .stats-bar{
-  background: gray;
+  box-shadow: 0px 0px 4px 0px #000000;
+  background-color: rgb(255, 0, 0);
   width: 40px;
-}
-
-.hide-bar
-{
-  width: 0;
+  height: 4px;
 }
 
 .stats-bar-fill{
   background: green;
   height: 100%;
+  filter: brightness(1.5);
 }
 
 
 @media screen and (min-width: 640px) {
   .stats-bar{
-    background: gray;
     width: 100px;
     height: 12px;
   }
+
+  .show-pokemon {
+    height: 213px;
+  }
+
+  
+@keyframes showPokemon-in-out {
+  0%
+   {
+    height: 0;
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    height: 213px;
+  }
+}
 }
 

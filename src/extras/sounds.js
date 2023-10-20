@@ -1,10 +1,11 @@
 import { useState } from "react";
-import { useGlobal } from "../customHooks/global";
  
 const sounds = 
 {
 	start: '/start.mp3',
-	button1: '/button.mp3'
+	button1: '/button.mp3',
+	select: '/forward.mp3',
+	back: '/backward.mp3'
 }
 
 function useSounds()
@@ -18,6 +19,22 @@ function useSounds()
 	 	if (isOn)
 			audio.play();
 	}
+
+	const soundButtonBack = (isOn) => 
+	{
+		setSound(sounds.back)
+		const audio = new Audio(sounds.back);
+	 	if (isOn)
+			audio.play();
+	}
+
+	const soundButtonSelect = (isOn) => 
+	{
+		setSound(sounds.select)
+		const audio = new Audio(sounds.select);
+	 	if (isOn)
+			audio.play();
+	}
 	
 	const soundButtonStart = (isOn) => 
 	{
@@ -27,7 +44,7 @@ function useSounds()
 			audio.play();
 	}
 
-	return { soundButton1, soundButtonStart, sound }
+	return { soundButton1, soundButtonStart, soundButtonBack, soundButtonSelect, sound }
 }
 
 

@@ -18,7 +18,10 @@ function Buttons({
   requestOnePokemons,
   pageIndex,
   setPageIndex,
-  setActivePokemon
+  setActivePokemon,
+  soundButtonSelect,
+  soundButtonBack,
+  detailPokemon
 }) {
   function handlePage(action) {
     if (action === "next" && pageIndex < 100) setPageIndex(pageIndex + 1);
@@ -39,7 +42,7 @@ function Buttons({
       </button>
       <button
         onClick={() => {
-          soundButton1(isOn);
+          soundButtonSelect(isOn);
           if (showList) {
             setdetailPokemon(true), requestOnePokemons(select[selectIndex].url);
           }
@@ -50,7 +53,7 @@ function Buttons({
       </button>
       <button
         onClick={() => {
-          soundButton1(isOn);
+          soundButtonBack(isOn);
           if (showList) {
             setdetailPokemon(false);
             setActivePokemon({});
@@ -62,7 +65,8 @@ function Buttons({
       </button>
       <button
         onClick={() => {
-          if (showList) {
+          if (showList && !detailPokemon) {
+            soundButton1(isOn)
             if (selectIndex > 0) {
               setSelectIndex(selectIndex - 1);
             }
@@ -74,7 +78,8 @@ function Buttons({
       </button>
       <button
         onClick={() => {
-          if (showList) {
+          if (showList && !detailPokemon) {
+            soundButton1(isOn)
             if (selectIndex < 4) {
               setSelectIndex(selectIndex + 1);
             }
@@ -86,7 +91,8 @@ function Buttons({
       </button>
       <button
         onClick={() => {
-          if (showList) {
+          if (showList && !detailPokemon) {
+            soundButton1(isOn)
             if (index > 0) {
               setIndex(index - 5), setSelectIndex(0);
               handlePage("previuos");
@@ -99,7 +105,8 @@ function Buttons({
       </button>
       <button
         onClick={() => {
-          if (showList) {
+          if (showList && !detailPokemon) {
+            soundButton1(isOn)
             if (index < 500) {
               setIndex(index + 5), setSelectIndex(0), handlePage("next");
             }
@@ -111,7 +118,10 @@ function Buttons({
       </button>
       <button
         onClick={() => {
-          setShowList(false), soundButton1(isOn);
+          setPageIndex(0)
+          setIndex(0)
+          setSelectIndex(0)
+          setShowList(false), soundButtonBack(isOn);
           if (showList) {
             setdetailPokemon(false);
           }
