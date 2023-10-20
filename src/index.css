@@ -106,12 +106,6 @@ body {
   transform: translatey(-10px);
 }
 
-.hide-icons {
-  display: none;
-  position: relative;
-  z-index: 10;
-}
-
 .show-icons {
   display: block;
   animation: icons-in-out 0.8s forwards;

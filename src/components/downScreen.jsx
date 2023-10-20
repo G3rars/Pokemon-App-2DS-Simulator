@@ -18,13 +18,13 @@ export const DownScreen = ({ startSystem, icons, setIsOn, isOn, soundButtonSelec
           >
             <img
               onClick={() => {setShowList(true), soundButtonSelect(isOn)}}
-              className={`${icons ? "show-icons" : "hide-icons"} w-[50%]`}
+              className={`${icons ? "show-icons" : "hidden"} w-[50%]`}
               src="/gaming.png"
               alt="icon.ong"
             />
             <p
               className={`${
-                icons ? "show-icons" : "hide-icons"
+                icons ? "show-icons" : "hidden"
               } text-black font-semibold text-xs md:text-sm`}
             >
               Pokemons
@@ -39,13 +39,13 @@ export const DownScreen = ({ startSystem, icons, setIsOn, isOn, soundButtonSelec
               onClick={() => {
                 setIsOn(false), soundButtonBack(isOn);
               }}
-              className={`${icons ? "show-icons" : "hide-icons"} w-[50%]`}
+              className={`${icons ? "show-icons" : "hidden"} w-[50%]`}
               src="/Shutdown.png"
               alt="icon.png"
             />
             <p
               className={`${
-                icons ? "show-icons" : "hide-icons"
+                icons ? "show-icons" : "hidden"
               } text-black font-semibold text-xs md:text-sm`}
             >
               ShutDown
