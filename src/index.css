@@ -5,6 +5,7 @@
 body {
   background-image: url("/backpaper2.jpg");
   background-size: cover;
+  overflow-y: hidden;
 }
 .hidden-back {
   opacity: 0;
@@ -31,7 +32,7 @@ body {
     opacity: 1;
   }
   100% {
-    opacity: 0; 
+    opacity: 0;
   }
 }
 
@@ -64,8 +65,8 @@ body {
 }
 
 @keyframes showPokemon-in-out {
-  0%, 50%
-   {
+  0%,
+  50% {
     opacity: 0;
     height: 0;
   }
@@ -121,7 +122,7 @@ body {
   }
 
   100% {
-    opacity: 1; 
+    opacity: 1;
   }
 }
 
@@ -134,22 +135,21 @@ body {
   opacity: 70%;
 }
 
-.stats-bar{
+.stats-bar {
   box-shadow: 0px 0px 4px 0px #000000;
   background-color: rgb(255, 0, 0);
   width: 40px;
   height: 4px;
 }
 
-.stats-bar-fill{
+.stats-bar-fill {
   background: green;
   height: 100%;
   filter: brightness(1.5);
 }
 
-
 @media screen and (min-width: 640px) {
-  .stats-bar{
+  .stats-bar {
     width: 100px;
     height: 12px;
   }
@@ -158,17 +158,14 @@ body {
     height: 213px;
   }
 
-  
-@keyframes showPokemon-in-out {
-  0%
-   {
-    height: 0;
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-    height: 213px;
+  @keyframes showPokemon-in-out {
+    0% {
+      height: 0;
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+      height: 213px;
+    }
   }
 }
-}
-

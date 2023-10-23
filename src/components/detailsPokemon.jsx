@@ -11,7 +11,13 @@ function DetailsPokemon({ activePokemon, statsAnimation }) {
             >
               <p className="capitalize font-semibold">{stat.stat.name}</p>
               <div className="stats-bar overflow-hidden">
-              <div className="stats-bar-fill" style={{ width: `${statsAnimation ? (stat.base_stat) : 0}%`, transition: "width 0.5s ease-in-out" }}></div>
+                <div
+                  className="stats-bar-fill"
+                  style={{
+                    width: `${statsAnimation ? stat.base_stat : 0}%`,
+                    transition: "width 0.5s ease-in-out",
+                  }}
+                ></div>
               </div>
             </div>
           );

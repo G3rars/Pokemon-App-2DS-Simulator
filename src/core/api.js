@@ -1,7 +1,5 @@
 import { useState, useEffect } from "react";
 
-
-
 // Custom hook para obtener datos de Pokémon
 function usePokemonsData(index) {
   const [activePokemon, setActivePokemon] = useState({}); // nos guarda 1 solo pokemon para mostrarlo en detalles
@@ -28,27 +26,27 @@ function usePokemonsData(index) {
 
   const requestOnePokemons = async (url) => {
     fetch(url)
-          .then((response) => {
-            if (!response.ok) {
-              throw new Error("La solicitud no fue exitosa");
-            }
-            return response.json();
-          })
-          .then((data) => {
-            setActivePokemon(data);
-          })
-          .catch((error) => {
-            console.error("Hubo un error en la solicitud:", error);
-          });
-  }
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("La solicitud no fue exitosa");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        setActivePokemon(data);
+      })
+      .catch((error) => {
+        console.error("Hubo un error en la solicitud:", error);
+      });
+  };
 
   return {
-    pokemonsData, 
+    pokemonsData,
     setPokemonsData,
     activePokemon,
     setActivePokemon,
-    requestOnePokemons
-   };
+    requestOnePokemons,
+  };
 }
 
 export { usePokemonsData };
