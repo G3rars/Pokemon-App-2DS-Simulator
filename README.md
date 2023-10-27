@@ -36,6 +36,8 @@ La **Pokémon App 2DS Simulator** se desarrolló utilizando las siguientes tecno
 
 - **React**: La aplicación utiliza React para crear una interfaz de usuario dinámica.
 
+- **JavaScript**: Se ha utilizado como lenguaje de programacion JavaScript.
+
 - **Vite**: Vite se utiliza como entorno de desarrollo para garantizar un rendimiento rápido y eficiente.
 
 - **Tailwind CSS**: Los estilos de la aplicación se crearon utilizando Tailwind CSS, lo que permite una personalización sencilla y un aspecto moderno.
