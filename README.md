@@ -2,6 +2,8 @@
 
 La **Pokémon App 2DS Simulator** es una aplicación web que te permite explorar una lista de Pokémon utilizando la API pública de [PokeAPI](https://pokeapi.co/). Con esta aplicación, podrás ver las estadísticas y la imagen de los Pokémon.
 
+![ ](/public/git%201.png)
+
 ## Características Principales
 
 - **Explora Pokémon**: Visualiza una lista de Pokémon y accede a información básica, incluyendo estadísticas y la imagen de cada uno.
@@ -11,6 +13,8 @@ La **Pokémon App 2DS Simulator** es una aplicación web que te permite explorar
 ## Cómo Usar
 
 1. Accede a la [versión web](https://pokedex-v1-g3rard.vercel.app/) de la **Pokémon App 2DS Simulator** desde tu dispositivo.
+
+![ ](/public/git%202.png)
 
 2. Explora la lista de Pokémon utilizando los siguientes controles:
 
